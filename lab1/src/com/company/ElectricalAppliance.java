@@ -36,6 +36,14 @@ public abstract class ElectricalAppliance {
         isWorking = false;
     }
 
+    public boolean isConnectToElectricitySupply() {
+        return isConnectToElectricitySupply;
+    }
+
+    public boolean isWorking() {
+        return isWorking;
+    }
+
     // to get the electric power (watts)
     public int getPower() {
         return power;
