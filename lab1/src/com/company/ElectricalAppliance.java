@@ -4,7 +4,7 @@ public abstract class ElectricalAppliance {
     // electric power (watts)
     private int power;
 
-    ElectricalAppliance(int power) {
+    public ElectricalAppliance(int power) {
         this.power = power;
     }
 
