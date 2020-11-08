@@ -2,7 +2,7 @@ package com.company;
 
 public abstract class ElectricalAppliance {
     // electric power (watts)
-    private int power;
+    private final int POWER;
 
     private boolean isConnectToElectricitySupply = false;
 
@@ -10,7 +10,7 @@ public abstract class ElectricalAppliance {
     private boolean isWorking = false;
 
     public ElectricalAppliance(int power) {
-        this.power = power;
+        this.POWER = power;
     }
 
     // to connect a piece of electrical equipment to an electricity supply
@@ -46,6 +46,6 @@ public abstract class ElectricalAppliance {
 
     // to get the electric power (watts)
     public int getPower() {
-        return power;
+        return POWER;
     }
 }
