@@ -15,7 +15,7 @@ public class ElectricKettle extends ElectricalAppliance {
     public void fillWithWater(double litres) {
         currentVolume += litres;
     }
-    
+
     @Override
     public void turnOn() {
         if ((Double.compare(currentVolume, MIN_VOLUME) >= 0) && (Double.compare(currentVolume, MAX_VOLUME) <= 0)) {
@@ -29,5 +29,9 @@ public class ElectricKettle extends ElectricalAppliance {
 
     public double getMaxVolume() {
         return this.MAX_VOLUME;
+    }
+
+    public double getCurrentVolume() {
+        return this.currentVolume;
     }
 }
