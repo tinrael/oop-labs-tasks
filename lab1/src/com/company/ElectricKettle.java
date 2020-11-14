@@ -12,8 +12,15 @@ public class ElectricKettle extends ElectricalAppliance {
         this.MAX_VOLUME = maxVolume;
     }
 
-    public void fillWithWater(double litres) {
+    public void fill(double litres) {
         currentVolume += litres;
+        if (currentVolume < 0.0) {
+            currentVolume = 0.0;
+        }
+    }
+
+    public void empty() {
+        currentVolume = 0.0;
     }
 
     @Override
