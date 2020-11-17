@@ -11,6 +11,15 @@ public class Flat {
     }
 
     /*
+     * Searches for the ElectricalAppliance by the name 'name'.
+     * If found, returns ElectricalAppliance.
+     * Otherwise, returns null.
+     */
+    public ElectricalAppliance getElectricalAppliance(String name) {
+        return electricalAppliances.get(name);
+    }
+
+    /*
      * Searches for the ElectricalAppliance with the power 'power'.
      * If found, returns ElectricalAppliance.
      * Otherwise, returns null.
