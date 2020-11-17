@@ -10,6 +10,20 @@ public class Flat {
         electricalAppliances.put(name, electricalAppliance);
     }
 
+    /*
+     * Searches for the ElectricalAppliance with the power 'power'.
+     * If found, returns ElectricalAppliance.
+     * Otherwise, returns null.
+     */
+    public ElectricalAppliance getElectricalAppliance(int power) {
+        for (ElectricalAppliance electricalAppliance : electricalAppliances.values()) {
+            if (electricalAppliance.getPower() == power) {
+                return electricalAppliance;
+            }
+        }
+        return null;
+    }
+
     public int calculateTotalElectricityConsumption() {
         int result = 0;
         for (ElectricalAppliance electricalAppliance : electricalAppliances.values()) {
