@@ -1,7 +1,11 @@
 package com.company;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 public class Flat {
     // an empty insertion-ordered LinkedHashMap instance
@@ -35,6 +39,21 @@ public class Flat {
             }
         }
         return null;
+    }
+
+    public void sortElectricalAppliances() {
+        List<Map.Entry<String, ElectricalAppliance>> entries = new LinkedList<>(electricalAppliances.entrySet());
+        entries.sort(new Comparator<Map.Entry<String, ElectricalAppliance>>() {
+            @Override
+            public int compare(Map.Entry<String, ElectricalAppliance> o1, Map.Entry<String, ElectricalAppliance> o2) {
+                return Integer.compare(o1.getValue().getPower(), o2.getValue().getPower());
+            }
+        });
+
+        electricalAppliances.clear();
+        for (Map.Entry<String, ElectricalAppliance> entry : entries) {
+            electricalAppliances.put(entry.getKey(), entry.getValue());
+        }
     }
 
     public int calculateTotalElectricityConsumption() {
