@@ -9,19 +9,16 @@ class FlatTest {
 
     @Test
     void addElectricalAppliance() {
-        String name = "oven";
-        MicrowaveOven oven = new MicrowaveOven(25);
-
         assertThrows(NullPointerException.class, () -> {
             flat.addElectricalAppliance(null, null);
         });
 
         assertThrows(NullPointerException.class, () -> {
-            flat.addElectricalAppliance(name, null);
+            flat.addElectricalAppliance("oven", null);
         });
 
         assertThrows(NullPointerException.class, () -> {
-            flat.addElectricalAppliance(null, oven);
+            flat.addElectricalAppliance(null, new MicrowaveOven(25));
         });
     }
 
