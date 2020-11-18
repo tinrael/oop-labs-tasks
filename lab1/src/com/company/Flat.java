@@ -4,9 +4,13 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class Flat {
-    private HashMap<String, ElectricalAppliance> electricalAppliances = new LinkedHashMap<>();
+    // an empty insertion-ordered LinkedHashMap instance
+    private final HashMap<String, ElectricalAppliance> electricalAppliances = new LinkedHashMap<>();
 
     public void addElectricalAppliance(String name, ElectricalAppliance electricalAppliance) {
+        if (name == null || electricalAppliance == null) {
+            throw new NullPointerException();
+        }
         electricalAppliances.put(name, electricalAppliance);
     }
 
