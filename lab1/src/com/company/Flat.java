@@ -65,4 +65,13 @@ public class Flat {
         }
         return result;
     }
+
+    @Override
+    public String toString() {
+        String result = "Electrical appliances:\n";
+        for (Map.Entry<String, ElectricalAppliance> entry : electricalAppliances.entrySet()) {
+            result += "\t[" + entry.getKey() + ", " + entry.getValue().getPower() + "]\n";
+        }
+        return result;
+    }
 }
