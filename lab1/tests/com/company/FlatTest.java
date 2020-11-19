@@ -51,6 +51,31 @@ class FlatTest {
     }
 
     @Test
+    void sortElectricalAppliances() {
+        MicrowaveOven oven = new MicrowaveOven(25);
+        MicrowaveOven microwave = new MicrowaveOven(50);
+        ElectricKettle kettle = new ElectricKettle(15, 2.5, 5.0);
+
+        flat.addElectricalAppliance("oven", oven);
+        flat.addElectricalAppliance("microwave", microwave);
+        flat.addElectricalAppliance("kettle", kettle);
+
+        String unsorted = "Electrical appliances:\n" +
+                "\t[oven, 25]\n" +
+                "\t[microwave, 50]\n" +
+                "\t[kettle, 15]\n";
+        assertEquals(unsorted, flat.toString());
+
+        flat.sortElectricalAppliances();
+
+        String sorted = "Electrical appliances:\n" +
+                "\t[kettle, 15]\n" +
+                "\t[oven, 25]\n" +
+                "\t[microwave, 50]\n";
+        assertEquals(sorted, flat.toString());
+    }
+
+    @Test
     void calculateTotalElectricityConsumption() {
         assertEquals(0, flat.calculateTotalElectricityConsumption());
 
