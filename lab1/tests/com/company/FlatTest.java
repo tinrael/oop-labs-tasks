@@ -28,10 +28,26 @@ class FlatTest {
         MicrowaveOven oven = new MicrowaveOven(25);
 
         assertNull(flat.getElectricalAppliance(name));
+
         flat.addElectricalAppliance(name, oven);
         assertNotNull(flat.getElectricalAppliance(name));
 
         assertNull(flat.getElectricalAppliance("kettle"));
+    }
+
+    @Test
+    void getElectricalApplianceByPower() {
+        MicrowaveOven oven = new MicrowaveOven(25);
+        ElectricKettle kettle = new ElectricKettle(15, 2.5, 5.0);
+
+        assertNull(flat.getElectricalAppliance(oven.getPower()));
+        assertNull(flat.getElectricalAppliance(kettle.getPower()));
+
+        flat.addElectricalAppliance("oven", oven);
+        flat.addElectricalAppliance("kettle", kettle);
+
+        assertNotNull(flat.getElectricalAppliance(oven.getPower()));
+        assertNotNull(flat.getElectricalAppliance(kettle.getPower()));
     }
 
     @Test
