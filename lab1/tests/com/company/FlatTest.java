@@ -9,15 +9,15 @@ class FlatTest {
 
     @Test
     void addElectricalAppliance() {
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             flat.addElectricalAppliance(null, null);
         });
 
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             flat.addElectricalAppliance("oven", null);
         });
 
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             flat.addElectricalAppliance(null, new MicrowaveOven(25));
         });
     }

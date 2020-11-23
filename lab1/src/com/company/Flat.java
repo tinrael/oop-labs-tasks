@@ -12,7 +12,7 @@ public class Flat {
 
     public void addElectricalAppliance(String name, ElectricalAppliance electricalAppliance) {
         if (name == null || electricalAppliance == null) {
-            throw new NullPointerException();
+            throw new IllegalArgumentException();
         }
         electricalAppliances.put(name, electricalAppliance);
     }
