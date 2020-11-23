@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.Map;
 
 public class Flat {
     // an empty insertion-ordered LinkedHashMap instance
-    private final HashMap<String, ElectricalAppliance> electricalAppliances = new LinkedHashMap<>();
+    private final Map<String, ElectricalAppliance> electricalAppliances = new LinkedHashMap<>();
 
     public void addElectricalAppliance(String name, ElectricalAppliance electricalAppliance) {
         if (name == null || electricalAppliance == null) {
