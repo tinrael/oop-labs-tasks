@@ -2,6 +2,9 @@ package com.company;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class FlatTest {
@@ -60,19 +63,12 @@ class FlatTest {
         flat.addElectricalAppliance("microwave", microwave);
         flat.addElectricalAppliance("kettle", kettle);
 
-        String unsorted = "Electrical appliances:\n" +
-                "\t[oven, 25]\n" +
-                "\t[microwave, 50]\n" +
-                "\t[kettle, 15]\n";
-        assertEquals(unsorted, flat.toString());
+        List<ElectricalAppliance> sortedList = new LinkedList<>();
+        sortedList.add(kettle);
+        sortedList.add(oven);
+        sortedList.add(microwave);
 
-        flat.sortElectricalAppliances();
-
-        String sorted = "Electrical appliances:\n" +
-                "\t[kettle, 15]\n" +
-                "\t[oven, 25]\n" +
-                "\t[microwave, 50]\n";
-        assertEquals(sorted, flat.toString());
+        assertEquals(sortedList, flat.sortElectricalAppliances());
     }
 
     @Test
