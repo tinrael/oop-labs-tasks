@@ -40,7 +40,7 @@ public class Flat {
         return null;
     }
 
-    public void sortElectricalAppliances() {
+    public List<ElectricalAppliance> sortElectricalAppliances() {
         List<Map.Entry<String, ElectricalAppliance>> entries = new LinkedList<>(electricalAppliances.entrySet());
         entries.sort(new Comparator<Map.Entry<String, ElectricalAppliance>>() {
             @Override
@@ -49,10 +49,11 @@ public class Flat {
             }
         });
 
-        electricalAppliances.clear();
+        List<ElectricalAppliance> result = new LinkedList<>();
         for (Map.Entry<String, ElectricalAppliance> entry : entries) {
-            electricalAppliances.put(entry.getKey(), entry.getValue());
+            result.add(entry.getValue());
         }
+        return result;
     }
 
     public int calculateTotalElectricityConsumption() {
