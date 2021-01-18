@@ -7,10 +7,36 @@
 	<element name="planes">
 		<complexType>
 			<sequence>
-				<element name="warplane" maxOccurs="unbounded" />
+				<element name="warplane" type="tns:Warplane" maxOccurs="unbounded" />
 			</sequence>
 		</complexType>
 	</element>
+
+	<complexType name="Warplane">
+		<sequence>
+			<element name="model" type="string" />
+			<element name="origin" type="string" />
+			<element name="chars" type="tns:Chars" />
+			<element name="parameters" type="tns:Parameters" />
+			<element name="price" type="positiveInteger" />
+		</sequence>
+	</complexType>
+
+	<complexType name="Chars">
+		<sequence>
+			<element name="type" type="tns:Type" />
+		</sequence>
+	</complexType>
+
+	<simpleType name="Type">
+		<restriction base="string">
+			<enumeration value="fighter" />
+			<enumeration value="bomber" />
+			<enumeration value="attacker" />
+			<enumeration value="support" />
+			<enumeration value="spy" />
+		</restriction>
+	</simpleType>
 
 	<complexType name="Parameters">
 		<all>
