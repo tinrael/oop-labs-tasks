@@ -20,7 +20,13 @@
 			<element name="parameters" type="tns:Parameters" />
 			<element name="price" type="positiveInteger" />
 		</sequence>
-		<attribute name="id" type="string" use="required" />
+		<attribute name="id" use="required">
+			<simpleType>
+				<restriction base="ID">
+					<pattern value="([a-zA-Z0-9-])+" />
+				</restriction>
+			</simpleType>
+		</attribute>
 	</complexType>
 
 	<complexType name="Chars">
