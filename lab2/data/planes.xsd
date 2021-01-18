@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.example.com/planes" 
+	xmlns:tns="http://www.example.com/planes"
+	elementFormDefault="qualified">
+
+	<element name="planes">
+		<complexType>
+			<sequence>
+				<element name="warplane" maxOccurs="unbounded" />
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="Parameters">
+		<all>
+			<element name="length" type="decimal" />
+			<element name="height" type="decimal" />
+			<element name="wingspan" type="decimal" />
+		</all>
+	</complexType>
+</schema>
