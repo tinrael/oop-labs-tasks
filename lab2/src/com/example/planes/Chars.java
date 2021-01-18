@@ -143,4 +143,15 @@ public class Chars {
         this.radar = value;
     }
 
+    @Override
+    public String toString() {
+        String text = "\nChars: " + "\n\tType: " + type.value() + "\n\tSeats: " + seats;
+        if (armaments != null) {
+            text += "\n\tArmaments: " + "\n\t\tRockets: " + armaments.getRockets();
+        }
+        text += "\n\tRadar: " + radar.isEquipped();
+
+        return text;
+    }
+
 }

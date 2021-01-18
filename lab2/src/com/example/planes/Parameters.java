@@ -121,4 +121,9 @@ public class Parameters {
         this.wingspan = value;
     }
 
+    @Override
+    public String toString() {
+        return "\nParameters: " + "\n\tLength: " + length + "\n\tHeight: " + height + "\n\tWingspan: " + wingspan;
+    }
+
 }

@@ -220,4 +220,9 @@ public class Warplane {
         this.id = value;
     }
 
+    @Override
+    public String toString() {
+        return "\nID: " + id + "\nModel: " + model + "\nOrigin: " + origin + chars + parameters + "\nPrice: " + price + "\n";
+    }
+
 }
