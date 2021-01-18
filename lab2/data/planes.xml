@@ -3,16 +3,14 @@
 	xmlns="http://www.example.com/planes" 
 	xsi:schemaLocation="http://www.example.com/planes planes.xsd">
 
-	<warplane>
+	<warplane id="f-14">
 		<model>Grumman F-14 Tomcat</model>
 		<origin>United States</origin>
 		<chars>
 			<type>fighter</type>
 			<seats>2</seats>
-			<armaments>
-				<rockets>7</rockets>
-			</armaments>
-			<radar></radar>
+			<armaments rockets="7" />
+			<radar equipped="true" />
 		</chars>
 		<parameters>
 			<length>18.6</length>
