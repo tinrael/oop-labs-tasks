@@ -7,7 +7,7 @@
 	<element name="planes">
 		<complexType>
 			<sequence>
-				<element name="warplane" type="tns:Warplane" maxOccurs="unbounded" />
+				<element name="warplane" type="tns:Warplane" minOccurs="0" maxOccurs="unbounded" />
 			</sequence>
 		</complexType>
 	</element>
@@ -20,11 +20,15 @@
 			<element name="parameters" type="tns:Parameters" />
 			<element name="price" type="positiveInteger" />
 		</sequence>
+		<attribute name="id" type="string" use="required" />
 	</complexType>
 
 	<complexType name="Chars">
 		<sequence>
 			<element name="type" type="tns:Type" />
+			<element name="seats" type="tns:Seats" />
+			<element name="armaments" type="tns:Armaments" minOccurs="0" />
+			<element name="radar" type="tns:Radar" />
 		</sequence>
 	</complexType>
 
@@ -38,6 +42,28 @@
 		</restriction>
 	</simpleType>
 
+	<simpleType name="Seats">
+		<restriction base="integer">
+			<minInclusive value="1" />
+			<maxInclusive value="2" />
+		</restriction>
+	</simpleType>
+	
+	<complexType name="Armaments">
+		<attribute name="rockets" use="required">
+			<simpleType>
+				<restriction base="integer">
+					<minInclusive value="0" />
+					<maxInclusive value="10" />
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+
+	<complexType name="Radar">
+		<attribute name="equipped" type="boolean" use="required" />
+	</complexType>
+
 	<complexType name="Parameters">
 		<all>
 			<element name="length" type="decimal" />
@@ -45,4 +71,5 @@
 			<element name="wingspan" type="decimal" />
 		</all>
 	</complexType>
+
 </schema>
