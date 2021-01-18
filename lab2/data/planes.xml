@@ -20,4 +20,20 @@
 		<price>38000000</price>
 	</warplane>
 
+	<warplane id="sr-71">
+		<model>Lockheed SR-71 Blackbird</model>
+		<origin>United States</origin>
+		<chars>
+			<type>spy</type>
+			<seats>2</seats>
+			<radar equipped="true" />
+		</chars>
+		<parameters>
+			<length>32.74</length>
+			<height>5.64</height>
+			<wingspan>16.94</wingspan>
+		</parameters>
+		<price>34000000</price>
+	</warplane>
+
 </planes>
