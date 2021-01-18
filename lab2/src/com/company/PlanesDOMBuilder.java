@@ -93,7 +93,7 @@ public class PlanesDOMBuilder extends AbstractPlanesBuilder{
     private static String getElementTextContent(Element element, String childTagName) {
         NodeList childNodesList = element.getElementsByTagName(childTagName);
         if (childNodesList.getLength() == 0) {
-            throw new IllegalArgumentException("The element '" + element.getTagName() + "' does not have a child node with the name '" + childTagName +"'.");
+            throw new IllegalArgumentException("[dom-builder]: The element '" + element.getTagName() + "' does not have a child node with the name '" + childTagName +"'.");
         } else {
             String text = childNodesList.item(0).getTextContent();
             return text == null ? "" : text;
