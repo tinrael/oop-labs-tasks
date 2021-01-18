@@ -10,7 +10,7 @@ import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 import org.xml.sax.SAXException;
 
-// syntax-check and validates against the specified XSD
+// This validator validates that an XML document is well-formed and valid.
 public class XMLValidator {
 
     public static boolean validate(String xmlLocation, String xsdLocation) {
