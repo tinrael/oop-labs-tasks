@@ -66,10 +66,11 @@ public class PlanesStAXBuilder extends AbstractPlanesBuilder {
 
         while (reader.hasNext()) {
             type = reader.next();
-            currentElementName = reader.getLocalName();
 
             switch (type) {
                 case XMLStreamConstants.START_ELEMENT:
+                    currentElementName = reader.getLocalName();
+
                     switch (PlanesEnum.valueOf(currentElementName.toUpperCase())) {
                         case MODEL:
                             warplane.setModel(getCurrentElementTextContent(reader));
@@ -91,6 +92,8 @@ public class PlanesStAXBuilder extends AbstractPlanesBuilder {
                     break;
 
                 case XMLStreamConstants.END_ELEMENT:
+                    currentElementName = reader.getLocalName();
+
                     if (PlanesEnum.valueOf(currentElementName.toUpperCase()) == PlanesEnum.WARPLANE) {
                         return warplane;
                     }
@@ -110,10 +113,11 @@ public class PlanesStAXBuilder extends AbstractPlanesBuilder {
 
         while (reader.hasNext()) {
             type = reader.next();
-            currentElementName = reader.getLocalName();
 
             switch (type) {
                 case XMLStreamConstants.START_ELEMENT:
+                    currentElementName = reader.getLocalName();
+
                     switch (PlanesEnum.valueOf(currentElementName.toUpperCase())) {
                         case TYPE:
                             chars.setType(Type.valueOf(getCurrentElementTextContent(reader).toUpperCase()));
@@ -137,6 +141,8 @@ public class PlanesStAXBuilder extends AbstractPlanesBuilder {
 
                     break;
                 case XMLStreamConstants.END_ELEMENT:
+                    currentElementName = reader.getLocalName();
+
                     if (PlanesEnum.valueOf(currentElementName.toUpperCase()) == PlanesEnum.CHARS) {
                         return chars;
                     }
@@ -156,10 +162,11 @@ public class PlanesStAXBuilder extends AbstractPlanesBuilder {
 
         while (reader.hasNext()) {
             type = reader.next();
-            currentElementName = reader.getLocalName();
 
             switch (type) {
                 case XMLStreamConstants.START_ELEMENT:
+                    currentElementName = reader.getLocalName();
+
                     switch (PlanesEnum.valueOf(currentElementName.toUpperCase())) {
                         case LENGTH:
                             parameters.setLength(new BigDecimal(getCurrentElementTextContent(reader)));
@@ -174,6 +181,8 @@ public class PlanesStAXBuilder extends AbstractPlanesBuilder {
 
                     break;
                 case XMLStreamConstants.END_ELEMENT:
+                    currentElementName = reader.getLocalName();
+
                     if (PlanesEnum.valueOf(currentElementName.toUpperCase()) == PlanesEnum.PARAMETERS) {
                         return parameters;
                     }
