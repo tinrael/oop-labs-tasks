@@ -7,6 +7,7 @@ public class PlanesBuilderFactory {
             case "DOM":
                 return new PlanesDOMBuilder();
             case "STAX":
+                return new PlanesStAXBuilder();
             case "SAX":
                 return null;
             default:
