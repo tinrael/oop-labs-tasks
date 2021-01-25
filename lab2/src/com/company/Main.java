@@ -6,7 +6,7 @@ public class Main {
         // System.out.println(XMLValidator.validate("data/planes.xml", "data/planes.xsd"));
 
         PlanesBuilderFactory planesBuilderFactory = new PlanesBuilderFactory();
-        AbstractPlanesBuilder planesBuilder = planesBuilderFactory.createPlanesBuilder("stax");
+        AbstractPlanesBuilder planesBuilder = planesBuilderFactory.createPlanesBuilder("sax");
         planesBuilder.build("data/planes.xml");
         System.out.println(planesBuilder.getPlanes());
     }
