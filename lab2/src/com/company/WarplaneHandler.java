@@ -14,6 +14,8 @@ import org.xml.sax.helpers.DefaultHandler;
 public class WarplaneHandler extends DefaultHandler {
     private final Set<Warplane> planes = new HashSet<>();
 
+    private boolean isStartTag;
+
     private PlanesEnum currentPlanesEnum;
 
     private Warplane currentWarplane;
@@ -22,6 +24,8 @@ public class WarplaneHandler extends DefaultHandler {
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attrs) {
+        isStartTag = true;
+
         currentPlanesEnum = PlanesEnum.valueOf(localName.toUpperCase());
 
         switch (currentPlanesEnum) {
@@ -53,6 +57,8 @@ public class WarplaneHandler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) {
+        isStartTag = false;
+
         currentPlanesEnum = PlanesEnum.valueOf(localName.toUpperCase());
 
         switch (currentPlanesEnum) {
@@ -71,34 +77,36 @@ public class WarplaneHandler extends DefaultHandler {
 
     @Override
     public void characters(char[] ch, int start, int length) {
-        String elementTextContent = new String(ch, start, length); // trim() ?
+        String elementTextContent = new String(ch, start, length).trim();
 
-        switch (currentPlanesEnum) {
-            case MODEL:
-                currentWarplane.setModel(elementTextContent);
-                break;
-            case ORIGIN:
-                currentWarplane.setOrigin(elementTextContent);
-                break;
-            case TYPE:
-                currentChars.setType(Type.valueOf(elementTextContent.toUpperCase()));
-                break;
-            case SEATS:
-                currentChars.setSeats(Integer.parseInt(elementTextContent));
-                break;
-            case LENGTH:
-                currentParameters.setLength(new BigDecimal(elementTextContent));
-                break;
-            case HEIGHT:
-                currentParameters.setHeight(new BigDecimal(elementTextContent));
-                break;
-            case WINGSPAN:
-                currentParameters.setWingspan(new BigDecimal(elementTextContent));
-                break;
-            case PRICE:
-                currentWarplane.setPrice(new BigInteger(elementTextContent));
-                break;
-            default:
+        if (isStartTag) {
+            switch (currentPlanesEnum) {
+                case MODEL:
+                    currentWarplane.setModel(elementTextContent);
+                    break;
+                case ORIGIN:
+                    currentWarplane.setOrigin(elementTextContent);
+                    break;
+                case TYPE:
+                    currentChars.setType(Type.valueOf(elementTextContent.toUpperCase()));
+                    break;
+                case SEATS:
+                    currentChars.setSeats(Integer.parseInt(elementTextContent));
+                    break;
+                case LENGTH:
+                    currentParameters.setLength(new BigDecimal(elementTextContent));
+                    break;
+                case HEIGHT:
+                    currentParameters.setHeight(new BigDecimal(elementTextContent));
+                    break;
+                case WINGSPAN:
+                    currentParameters.setWingspan(new BigDecimal(elementTextContent));
+                    break;
+                case PRICE:
+                    currentWarplane.setPrice(new BigInteger(elementTextContent));
+                    break;
+                default:
+            }
         }
     }
 
