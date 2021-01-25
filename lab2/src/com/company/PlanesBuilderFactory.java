@@ -9,7 +9,7 @@ public class PlanesBuilderFactory {
             case "STAX":
                 return new PlanesStAXBuilder();
             case "SAX":
-                return null;
+                return new PlanesSAXBuilder();
             default:
                 throw new IllegalArgumentException("[builder-factory]: No such parser in the builder factory.");
         }
